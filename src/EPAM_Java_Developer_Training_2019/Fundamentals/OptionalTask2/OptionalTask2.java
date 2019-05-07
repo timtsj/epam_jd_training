@@ -15,9 +15,9 @@ public class OptionalTask2 {
         System.out.print("Введите числа через пробел: ");
         String[] digits = scanner.nextLine().split("\\s+");
 
-        findMaxAndMinDigit(digits);
+        findMaxAndMinNumbers(digits);
         sort(digits);
-        averageDigits(digits);
+        averageNumbers(digits);
     }
 
     /**
@@ -25,7 +25,7 @@ public class OptionalTask2 {
      *
      * @param digits array
      */
-    private static void findMaxAndMinDigit(String[] digits) {
+    private static void findMaxAndMinNumbers(String[] digits) {
         int maxLength = 0;
         int maxDigit = 0;
         int minLength = 0;
@@ -90,7 +90,7 @@ public class OptionalTask2 {
     }
 
     /**
-     * Simpel bubbleSort
+     * Simple bubbleSort
      *
      * @param mas int[]
      * @return int[]
@@ -119,7 +119,7 @@ public class OptionalTask2 {
      *
      * @param digits String[]
      */
-    private static void averageDigits(String[] digits) {
+    private static void averageNumbers(String[] digits) {
         int[] mas = StringToIntegerArray(digits);
         int sum = 0;
         Arrays.sort(mas);
@@ -140,5 +140,33 @@ public class OptionalTask2 {
 
         System.out.println("Больше средний: " + Arrays.toString(moreMid.toArray()));
         System.out.println("Меньше средний: " + Arrays.toString(lessMid.toArray()));
+    }
+
+    /**
+     * 4.     Найти число, в котором количество различных цифр минимально. Если таких чисел несколько, найти первое из них.
+     */
+    private static void diffNumbersMinimum(String[] digits) {
+
+    }
+
+    /**
+     * 5.     Найти количество чисел, содержащих только четные цифры, а среди оставшихся — количество чисел с равным числом четных и нечетных цифр.
+     */
+    private static void evenNumbers(String[] digits) {
+
+    }
+
+    /**
+     * 6.     Найти число, цифры в котором идут в строгом порядке возрастания. Если таких чисел несколько, найти первое из них.
+     */
+    private static void numbersAscendingOrder(String[] digits) {
+
+    }
+
+    /**
+     * 7.     Найти число, состоящее только из различных цифр. Если таких чисел несколько, найти первое из них.
+     */
+    private static void diffNumbers(String[] digits) {
+
     }
 }
