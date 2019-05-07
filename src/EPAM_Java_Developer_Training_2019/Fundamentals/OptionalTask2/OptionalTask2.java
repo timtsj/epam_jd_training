@@ -18,6 +18,10 @@ public class OptionalTask2 {
         findMaxAndMinNumbers(digits);
         sort(digits);
         averageNumbers(digits);
+        diffNumbersMinimum(digits);
+        evenNumbers(digits);
+        numbersAscendingOrder(digits);
+        diffNumbers(digits);
     }
 
     /**
@@ -121,8 +125,8 @@ public class OptionalTask2 {
      */
     private static void averageNumbers(String[] digits) {
         int[] mas = StringToIntegerArray(digits);
-        int sum = 0;
         Arrays.sort(mas);
+        int sum = 0;
         List<Integer> moreMid = new ArrayList<>();
         List<Integer> lessMid = new ArrayList<>();
 
@@ -153,7 +157,25 @@ public class OptionalTask2 {
      * 5.     Найти количество чисел, содержащих только четные цифры, а среди оставшихся — количество чисел с равным числом четных и нечетных цифр.
      */
     private static void evenNumbers(String[] digits) {
+        int[] mas = StringToIntegerArray(digits);
+        Arrays.sort(mas);
+        List<Integer> evenNumbers = new ArrayList<>();
+        List<Integer> tempNumbers = new ArrayList<>();
+        List<Integer> otherNumbers = new ArrayList<>();
 
+        for (int i : mas) {
+            if (i % 2 == 0) {
+                tempNumbers.add(i);
+                String[] splitedNumbers = String.valueOf(i).split("");
+                for (String s : splitedNumbers) {
+
+                }
+            } else {
+                otherNumbers.add(i);
+            }
+        }
+
+        System.out.println("evenNumbers: " + Arrays.toString(evenNumbers.toArray()));
     }
 
     /**
