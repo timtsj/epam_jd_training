@@ -1,9 +1,6 @@
 package EPAM_Java_Developer_Training_2019.Fundamentals.OptionalTask2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class OptionalTask2 {
 
