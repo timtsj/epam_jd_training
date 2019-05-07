@@ -1,6 +1,8 @@
 package EPAM_Java_Developer_Training_2019.Fundamentals.OptionalTask2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class OptionalTask2 {
@@ -15,11 +17,12 @@ public class OptionalTask2 {
 
         findMaxAndMinDigit(digits);
         sort(digits);
-        avarageDigits(digits);
+        averageDigits(digits);
     }
 
     /**
      * 1.     Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.
+     *
      * @param digits array
      */
     private static void findMaxAndMinDigit(String[] digits) {
@@ -55,6 +58,7 @@ public class OptionalTask2 {
 
     /**
      * 2.     Вывести числа в порядке возрастания (убывания) значений их длины.
+     *
      * @param digits array
      */
     private static void sort(String[] digits) {
@@ -72,6 +76,7 @@ public class OptionalTask2 {
 
     /**
      * Helper method for convert string array to int array
+     *
      * @param str array
      * @return int[]
      */
@@ -86,6 +91,7 @@ public class OptionalTask2 {
 
     /**
      * Simpel bubbleSort
+     *
      * @param mas int[]
      * @return int[]
      */
@@ -110,28 +116,29 @@ public class OptionalTask2 {
 
     /**
      * 3.     Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.
+     *
      * @param digits String[]
      */
-    private static void avarageDigits(String[] digits) {
+    private static void averageDigits(String[] digits) {
         int[] mas = StringToIntegerArray(digits);
+        int sum = 0;
         Arrays.sort(mas);
+        List<Integer> moreMid = new ArrayList<>();
+        List<Integer> lessMid = new ArrayList<>();
 
-        int mid = mas.length / 2;
+        for (int i : mas) {
+            sum += i;
+        }
 
-        System.out.print("Больше средний: ");
-        for (int i = mid; i < mas.length; i++) {
-            if (mas.length % 2 == 1) {
-                if (mid == i) {
-                    continue;
-                }
+        for (int i : mas) {
+            if (i >= sum / mas.length) {
+                moreMid.add(i);
+            } else {
+                lessMid.add(i);
             }
-            System.out.print(mas[i] + " ");
         }
 
-        System.out.println();
-        System.out.print("Меньше средний: ");
-        for (int i = 0; i < mid; i++) {
-            System.out.print(mas[i] + " ");
-        }
+        System.out.println("Больше средний: " + Arrays.toString(moreMid.toArray()));
+        System.out.println("Меньше средний: " + Arrays.toString(lessMid.toArray()));
     }
 }
