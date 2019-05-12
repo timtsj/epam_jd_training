@@ -7,7 +7,6 @@ public class OptionalTask1_4 {
     /**
      * 4.     Ввести целые числа как аргументы командной строки, подсчитать их сумму (произведение) и вывести результат на консоль.
      *
-     * @param args
      */
     public static void main(String[] args) {
         calculate();

@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class OptionalTask1_1 {
 
+    public static String name;
+
     public static void main(String[] args) {
         sayHello();
     }
@@ -14,6 +16,7 @@ public class OptionalTask1_1 {
     private static void sayHello() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter you name: ");
-        System.out.printf("Hello, %s!", scanner.next());
+        name = scanner.next();
+        System.out.printf("Hello, %s!", name);
     }
 }

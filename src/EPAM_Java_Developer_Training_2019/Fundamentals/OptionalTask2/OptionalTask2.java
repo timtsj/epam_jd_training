@@ -12,9 +12,9 @@ public class OptionalTask2 {
         System.out.print("Введите числа через пробел: ");
         String[] digits = scanner.nextLine().split("\\s+");
 
-        findMaxAndMinNumbers(digits);
-        sort(digits);
-        averageNumbers(digits);
+        findMaxAndMinNumbers(digits);   //done
+        sort(digits);                   //done
+        averageNumbers(digits);         //done
         diffNumbersMinimum(digits);
         evenNumbers(digits);
         numbersAscendingOrder(digits);

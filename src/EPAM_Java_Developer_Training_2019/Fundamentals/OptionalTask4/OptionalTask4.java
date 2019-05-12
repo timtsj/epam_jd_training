@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class OptionalTask4 {
 
-
+    /**
+     * Задание.
+     * Ввести с консоли n - размерность матрицы a [n] [n].
+     * Задать значения элементов матрицы в интервале значений от -M до M с помощью генератора случайных чисел (класс Random).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n, k;
@@ -35,6 +39,12 @@ public class OptionalTask4 {
         System.out.println(sumBetweenPositiveOfMatrix(matrix));
     }
 
+    /**
+     * 1.     Упорядочить строки (столбцы) матрицы в порядке возрастания значений элементов k-го столбца (строки).
+     * @param matrix matrix over which work will be done
+     * @param col column number for getPizzaAttribute
+     * @return ordered matrix
+     */
     private static int[][] orderMatrixRows(int[][] matrix, int col) {
 
         if (isNull(matrix) || col < 1 || col > matrix.length) {

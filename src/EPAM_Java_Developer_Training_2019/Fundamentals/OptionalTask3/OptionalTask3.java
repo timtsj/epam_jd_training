@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class OptionalTask3 {
 
+    /**
+     * Ввести число от 1 до 12. Вывести на консоль название месяца, соответствующего данному числу. Осуществить проверку корректности ввода чисел.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of the month: ");
@@ -11,6 +14,11 @@ public class OptionalTask3 {
         System.out.println(getMonthName(month));
     }
 
+    /**
+     * Helper method to get month name equals number.
+     * @param month number of month
+     * @return month name
+     */
     private static String getMonthName(int month) {
         switch (month) {
             case 1:
