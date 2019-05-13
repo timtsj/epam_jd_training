@@ -15,23 +15,22 @@ class Order {
 
     private Map<String, Float> typeMap = new HashMap<>();
     private Map<Integer, String> order = new HashMap<>();
-    private List<String> ingredientList = new ArrayList<>();
+    private List<String> ingredientList;
 
     private List<Pizza> currentPizzaList = new ArrayList<>();
-    //private List<List<String>> pizzaList = new ArrayList<>();
-    //private List<List<List<String>>> withIng = new ArrayList<>();
-
 
     public Order(String clientName, int clientNumber) {
+        if (clientNumber == 0) {
+            this.clientNumber++;
+        }
         this.clientNumber = clientNumber;
         this.clientName = clientName;
+        this.orderNumber++;
     }
 
     public void newPizza(String pizzaName, String pizzaType, int count) throws Exception {
         if (count > 10 || count < 0) throw new Exception("count more than 10 or less 0");
 
-        this.orderNumber++;
-        this.clientNumber++;
         typeMap.put("Calzone", 1.5f);
         typeMap.put("Base pizza", 1.0f);
         typeMap.put("Tomato Paste", 1.0f);
@@ -51,7 +50,7 @@ class Order {
 
         this.pizzaType = pizzaType;
         this.count = count;
-
+        ingredientList = new ArrayList<>();
     }
 
     public void getPizzaAttribute() {
@@ -71,38 +70,41 @@ class Order {
         ingredientList.add(ingredient);
     }
 
-    public String toString() {
-        String star = new String(new char[20]).replace("\0", "*");
-        String hyphen = new String(new char[20]).replace("\0", "-");
+    public void build() {
         currentPizzaList.add(new Pizza(pizzaName, pizzaType, ingredientList, count));
+    }
 
-        float balance = 0;
+    public String toString() {
+        String star = new String(new char[25]).replace("\0", "*");
+        String hyphen = new String(new char[25]).replace("\0", "-");
+        String format = "%-15s %6.2f €%n";
+        float totalSum = 0;
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(star + "\n");
-        stringBuilder.append("Заказ: " + orderNumber + "\n");
-        stringBuilder.append("Клиент: " + clientNumber + "\n");
-        //
+        stringBuilder.append(star).append("\n");
+        stringBuilder.append("Заказ: ").append(orderNumber).append("\n");
+        stringBuilder.append("Клиент: ").append(clientNumber).append("\n");
+
         for (Pizza pizza : currentPizzaList) {
             float sum = typeMap.get(pizza.getPizzaType());
 
-            stringBuilder.append("Название: " + pizza.getPizzaName() + "\n");
-            stringBuilder.append(hyphen + "\n");
-            stringBuilder.append(pizza.getPizzaType() + "      " + typeMap.get(pizza.getPizzaType()) + " €" + "\n");
+            stringBuilder.append("Название: ").append(pizza.getPizzaName()).append("\n");
+            stringBuilder.append(hyphen).append("\n");
+            stringBuilder.append(String.format(format, pizza.getPizzaType(), typeMap.get(pizza.getPizzaType())));
 
             for (String s : pizza.getIngredient()) {
-                stringBuilder.append(s + "      " + typeMap.get(s) + " €" + "\n");
+                stringBuilder.append(String.format(format, s, typeMap.get(s)));
                 sum += typeMap.get(s);
             }
-            stringBuilder.append(hyphen + "\n");
-            stringBuilder.append("Всего: " + "      " + sum + " €" + "\n");
-            stringBuilder.append("Кол-во: " + "         " + pizza.getCount() + "\n");
-            stringBuilder.append(hyphen + "\n");
+            stringBuilder.append(hyphen).append("\n");
+            stringBuilder.append(String.format(format, "Всего: ", sum));
+            stringBuilder.append(String.format("%-15s %8d%n", "Кол-во: ", pizza.getCount()));
+            stringBuilder.append(hyphen).append("\n");
 
-            balance += sum * pizza.getCount();
+            totalSum += sum * pizza.getCount();
         }
-        stringBuilder.append("Общая сумма: " + "         " + balance + " €" + "\n");
-        stringBuilder.append(star + "\n");
+        stringBuilder.append(String.format(format, "Общая сумма: ", totalSum));
+        stringBuilder.append(star).append("\n");
 
         return stringBuilder.toString();
     }

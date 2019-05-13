@@ -1,12 +1,11 @@
 package EPAM_Java_Developer_Training_2019.Fundamentals.MainTask;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class Pizza {
     private String pizzaName;
     private String pizzaType;
-    private List<String> ingredient = new ArrayList<>();
+    private List<String> ingredient;
     private int count;
 
     public Pizza(String pizzaName, String pizzaType, List<String> ingredient, int count) {

@@ -19,6 +19,7 @@ public class MainTask {
         order.addIngredient("Pepperoni");
         order.addIngredient("Garlic");
         order.addIngredient("Bacon");
+        order.build();
 
         order.newPizza("PepperoniOro", "Base pizza", 3);
         //order.getPizzaAttribute();
@@ -26,6 +27,7 @@ public class MainTask {
         order.addIngredient("Cheese");
         order.addIngredient("Pepperoni");
         order.addIngredient("Olives");
+        order.build();
 
         System.out.println(order.toString());
     }
