@@ -9,11 +9,10 @@ public class MainTask {
 
         welcome();
         String clientName = scanner.nextLine();
-        //System.out.println("Enter pizza name: ");
-        //String pizzaName = scanner.nextLine();
 
         Order order = new Order(clientName, 7717);
-        order.newPizza("Margarita", "Calzone", 2);
+        System.out.println("Enter pizza name: ");
+        order.newPizza(scanner.nextLine(), "Calzone", 2);
         //order.getPizzaAttribute();
         order.addIngredient("Tomato Paste");
         order.addIngredient("Pepperoni");
@@ -21,7 +20,8 @@ public class MainTask {
         order.addIngredient("Bacon");
         order.build();
 
-        order.newPizza("PepperoniOro", "Base pizza", 3);
+        System.out.println("Enter pizza name: ");
+        order.newPizza(scanner.nextLine(), "Base pizza", 3);
         //order.getPizzaAttribute();
         order.addIngredient("Tomato Paste");
         order.addIngredient("Cheese");
@@ -30,6 +30,26 @@ public class MainTask {
         order.build();
 
         System.out.println(order.toString());
+
+        Order order2 = new Order(clientName, 7717);
+        System.out.println("Enter pizza name: ");
+        order2.newPizza(scanner.nextLine(), "Calzone", 2);
+        //order.getPizzaAttribute();
+        order2.addIngredient("Tomato Paste");
+        order2.addIngredient("Pepperoni");
+        order2.addIngredient("Garlic");
+        order2.addIngredient("Bacon");
+        order2.build();
+
+        System.out.println("Enter pizza name: ");
+        order2.newPizza(scanner.nextLine(), "Base pizza", 3);
+        //order.getPizzaAttribute();
+        order2.addIngredient("Tomato Paste");
+        order2.addIngredient("Cheese");
+        order2.addIngredient("Pepperoni");
+        order2.addIngredient("Olives");
+        order2.build();
+        System.out.println(order2.toString());
     }
 
     private static void welcome() {

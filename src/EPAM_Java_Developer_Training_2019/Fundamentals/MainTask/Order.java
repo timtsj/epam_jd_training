@@ -12,6 +12,7 @@ class Order {
     private String clientName;
     private String pizzaType;
     private int count;
+    private int pizNum;
 
     private Map<String, Float> typeMap = new HashMap<>();
     private Map<Integer, String> order = new HashMap<>();
@@ -43,7 +44,7 @@ class Order {
         if (count > 10 || count < 0) throw new Exception("count more than 10 or less 0");
 
         if (pizzaName.trim().length() < 4 || pizzaName.trim().length() > 20) {
-            this.pizzaName = clientName + "_" + orderNumber;
+            this.pizzaName = clientName + "_" + ++pizNum;
         } else {
             this.pizzaName = pizzaName;
         }
