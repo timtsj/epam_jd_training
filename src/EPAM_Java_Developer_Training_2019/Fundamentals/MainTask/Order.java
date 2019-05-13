@@ -1,5 +1,6 @@
 package EPAM_Java_Developer_Training_2019.Fundamentals.MainTask;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 class Order {
@@ -81,9 +82,11 @@ class Order {
         String hyphen = new String(new char[25]).replace("\0", "-");
         String format = "%-15s %6.2f €%n";
         float totalSum = 0;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(star).append("\n");
+        stringBuilder.append("Время: ").append(String.format("%17s", dateFormat.format(new Date()))).append("\n");
         stringBuilder.append("Заказ: ").append(orderNumber).append("\n");
         stringBuilder.append("Клиент: ").append(clientNumber).append("\n");
 
