@@ -26,10 +26,6 @@ class Order {
         this.clientNumber = clientNumber;
         this.clientName = clientName;
         this.orderNumber++;
-    }
-
-    public void newPizza(String pizzaName, String pizzaType, int count) throws Exception {
-        if (count > 10 || count < 0) throw new Exception("count more than 10 or less 0");
 
         typeMap.put("Calzone", 1.5f);
         typeMap.put("Base pizza", 1.0f);
@@ -41,6 +37,10 @@ class Order {
         typeMap.put("Corn", 0.7f);
         typeMap.put("Pepperoni", 0.6f);
         typeMap.put("Olives", 0.5f);
+    }
+
+    public void newPizza(String pizzaName, String pizzaType, int count) throws Exception {
+        if (count > 10 || count < 0) throw new Exception("count more than 10 or less 0");
 
         if (pizzaName.trim().length() < 4 || pizzaName.trim().length() > 20) {
             this.pizzaName = clientName + "_" + orderNumber;
@@ -60,12 +60,11 @@ class Order {
 
     void addIngredient(String ingredient) {
 
-//        for (String s : ingredientList) {
-//            if (s.equals(ingredient)) {
-//                throw new IllegalArgumentException("Check ingredient again");
-//            }
-//
-//        }
+        for (String s : ingredientList) {
+            if (s.equals(ingredient)) {
+                throw new IllegalArgumentException("Check ingredient again");
+            }
+        }
 
         ingredientList.add(ingredient);
     }
