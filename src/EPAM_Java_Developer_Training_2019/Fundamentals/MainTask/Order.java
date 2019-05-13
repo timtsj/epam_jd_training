@@ -1,9 +1,6 @@
 package EPAM_Java_Developer_Training_2019.Fundamentals.MainTask;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class Order {
     private int orderNumber = 10000;
@@ -38,19 +35,23 @@ class Order {
         typeMap.put("Corn", 0.7f);
         typeMap.put("Pepperoni", 0.6f);
         typeMap.put("Olives", 0.5f);
+
+        Date date = new Date();
     }
 
-    public void newPizza(String pizzaName, String pizzaType, int count) throws Exception {
-        if (count > 10 || count < 0) throw new Exception("count more than 10 or less 0");
+    public void newPizza(String pizzaName, String pizzaType, int quantity) throws Exception {
+        if (quantity > 10) throw new Exception("Quantity can not be more than 10");
+        if (quantity < 0) throw new Exception("Quantity can not be less than 0");
+        pizNum++;
 
         if (pizzaName.trim().length() < 4 || pizzaName.trim().length() > 20) {
-            this.pizzaName = clientName + "_" + ++pizNum;
+            this.pizzaName = clientName + "_" + pizNum;
         } else {
             this.pizzaName = pizzaName;
         }
 
         this.pizzaType = pizzaType;
-        this.count = count;
+        this.count = quantity;
         ingredientList = new ArrayList<>();
     }
 
@@ -59,7 +60,7 @@ class Order {
         System.out.println(orderString);
     }
 
-    void addIngredient(String ingredient) {
+    void addIngredient(String ingredient) throws Exception {
 
         for (String s : ingredientList) {
             if (s.equals(ingredient)) {
@@ -68,6 +69,7 @@ class Order {
         }
 
         ingredientList.add(ingredient);
+        if (ingredientList.size() > 8) throw new Exception("Pizza is full");
     }
 
     public void build() {
