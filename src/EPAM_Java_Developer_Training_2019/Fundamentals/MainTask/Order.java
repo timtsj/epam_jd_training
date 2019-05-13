@@ -1,41 +1,9 @@
-package EPAM_Java_Developer_Training_2019.Fundamentals;
+package EPAM_Java_Developer_Training_2019.Fundamentals.MainTask;
 
-import java.util.*;
-
-public class MainTask {
-
-    public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-
-        welcome();
-        String clientName = scanner.nextLine();
-        //System.out.println("Enter pizza name: ");
-        //String pizzaName = scanner.nextLine();
-
-        Order order = new Order(clientName, 7717);
-        order.newPizza("Margarita", "Calzone", 2);
-        //order.getPizzaAttribute();
-        order.addIngredient("Tomato Paste");
-        order.addIngredient("Pepperoni");
-        order.addIngredient("Garlic");
-        order.addIngredient("Bacon");
-
-        order.newPizza("PepperoniOro", "Base pizza", 3);
-        //order.getPizzaAttribute();
-        order.addIngredient("Tomato Paste");
-        order.addIngredient("Cheese");
-        order.addIngredient("Pepperoni");
-        order.addIngredient("Olives");
-
-        System.out.println(order.toString());
-    }
-
-    private static void welcome() {
-        System.out.println("Hello, welcome to 'Palmetto' pizza.\nEnter you name: ");
-    }
-
-
-}
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class Order {
     private int orderNumber = 10000;
@@ -137,51 +105,5 @@ class Order {
         stringBuilder.append(star + "\n");
 
         return stringBuilder.toString();
-    }
-}
-
-class Pizza {
-    String pizzaName;
-    String pizzaType;
-    List<String> ingredient = new ArrayList<>();
-    int count;
-
-    public Pizza(String pizzaName, String pizzaType, List<String> ingredient, int count) {
-        this.pizzaName = pizzaName;
-        this.pizzaType = pizzaType;
-        this.ingredient = ingredient;
-        this.count = count;
-    }
-
-    public String getPizzaName() {
-        return pizzaName;
-    }
-
-    public void setPizzaName(String pizzaName) {
-        this.pizzaName = pizzaName;
-    }
-
-    public String getPizzaType() {
-        return pizzaType;
-    }
-
-    public void setPizzaType(String pizzaType) {
-        this.pizzaType = pizzaType;
-    }
-
-    public List<String> getIngredient() {
-        return ingredient;
-    }
-
-    public void setIngredient(List<String> ingredient) {
-        this.ingredient = ingredient;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 }
