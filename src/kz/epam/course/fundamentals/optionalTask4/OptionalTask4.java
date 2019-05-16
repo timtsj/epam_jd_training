@@ -1,4 +1,4 @@
-package EPAM_Java_Developer_Training_2019.Fundamentals.OptionalTask4;
+package kz.epam.course.fundamentals.optionalTask4;
 
 import java.util.Scanner;
 

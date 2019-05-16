@@ -1,18 +1,21 @@
-package EPAM_Java_Developer_Training_2019.Fundamentals.MainTask;
+package kz.epam.course.fundamentals.mainTask.entity;
 
 import java.util.List;
 
-class Pizza {
+public class Pizza {
     private String pizzaName;
     private String pizzaType;
     private List<String> ingredient;
-    private int count;
+    private int quantity;
 
-    public Pizza(String pizzaName, String pizzaType, List<String> ingredient, int count) {
+    public Pizza() {
+    }
+
+    public Pizza(String pizzaName, String pizzaType, List<String> ingredient, int quantity) {
         this.pizzaName = pizzaName;
         this.pizzaType = pizzaType;
         this.ingredient = ingredient;
-        this.count = count;
+        this.quantity = quantity;
     }
 
     public String getPizzaName() {
@@ -39,11 +42,11 @@ class Pizza {
         this.ingredient = ingredient;
     }
 
-    public int getCount() {
-        return count;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

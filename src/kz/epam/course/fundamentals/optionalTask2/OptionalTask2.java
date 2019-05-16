@@ -1,4 +1,4 @@
-package EPAM_Java_Developer_Training_2019.Fundamentals.OptionalTask2;
+package kz.epam.course.fundamentals.optionalTask2;
 
 import java.util.*;
 
