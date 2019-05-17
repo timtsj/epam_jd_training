@@ -1,18 +1,19 @@
 package kz.epam.course.fundamentals.mainTask.entity;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Order {
+    private static final int MAX_QUANTITY = 10;
+    private static final int MIN_QUANTITY = 0;
+    private static final int MIN_PIZZA_NAME_LENGTH = 4;
+    private static final int MAX_PIZZA_NAME_LENGTH = 20;
+    private static final int MAX_INGREDIENTS = 8;
     private Pizza pizza;
     private Client client;
-
     private int orderNumber = 10000;
     private int pizNum;
-
     private List<String> ingredientList;
-
     private List<Pizza> currentPizzaList = new ArrayList<>();
 
     public Order(String clientName, int clientNumber) {
@@ -22,11 +23,11 @@ public class Order {
     }
 
     public void newPizza(String pizzaName, String pizzaType, int quantity) throws Exception {
-        if (quantity > 10) throw new Exception("Quantity can not be more than 10");
-        if (quantity < 0) throw new Exception("Quantity can not be less than 0");
+        if (quantity > MAX_QUANTITY) throw new Exception("Quantity can not be more than 10");
+        if (quantity < MIN_QUANTITY) throw new Exception("Quantity can not be less than 0");
         pizNum++;
 
-        if (pizzaName.trim().length() < 4 || pizzaName.trim().length() > 20) {
+        if (pizzaName.trim().length() < MIN_PIZZA_NAME_LENGTH || pizzaName.trim().length() > MAX_PIZZA_NAME_LENGTH) {
             pizza.setPizzaName(client.getName() + "_" + pizNum);
         } else {
             pizza.setPizzaName(pizzaName);
@@ -51,7 +52,7 @@ public class Order {
         }
 
         ingredientList.add(ingredient);
-        if (ingredientList.size() > 8) throw new Exception("Pizza is full");
+        if (ingredientList.size() > MAX_INGREDIENTS) throw new Exception("Pizza is full");
         pizza.setIngredient(ingredientList);
     }
 
