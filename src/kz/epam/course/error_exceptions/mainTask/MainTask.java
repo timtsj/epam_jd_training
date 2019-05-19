@@ -24,7 +24,7 @@ public class MainTask {
     }
 
     private static void readFile() {
-        String path = "E:\\all\\DevProjects\\IntelliJProjects\\epam_jd_training\\src\\kz\\epam\\course\\error_exceptions\\res\\input";
+        String path = ".\\src\\kz\\epam\\course\\error_exceptions\\res\\input";
         File file = new File(path);
         List<Float> numbers = new ArrayList<>();
 
