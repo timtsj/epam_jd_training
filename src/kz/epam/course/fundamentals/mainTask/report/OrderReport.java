@@ -1,6 +1,6 @@
 package kz.epam.course.fundamentals.mainTask.report;
 
-import kz.epam.course.fundamentals.mainTask.entity.Ingredients;
+import kz.epam.course.fundamentals.mainTask.entity.Ingredient;
 import kz.epam.course.fundamentals.mainTask.entity.Order;
 import kz.epam.course.fundamentals.mainTask.entity.Pizza;
 
@@ -23,15 +23,15 @@ public class OrderReport {
         stringBuilder.append("Клиент: ").append(order.getClient().getId()).append("\n");
 
         for (Pizza pizza : order.getCurrentPizzaList()) {
-            float sum = Ingredients.valueOf(pizza.getPizzaType()).getPrice();
+            float sum = Ingredient.valueOf(pizza.getPizzaType()).getPrice();
 
             stringBuilder.append("Название: ").append(pizza.getPizzaName()).append("\n");
             stringBuilder.append(hyphen).append("\n");
-            stringBuilder.append(String.format(format, pizza.getPizzaType(), Ingredients.valueOf(pizza.getPizzaType()).getPrice()));
+            stringBuilder.append(String.format(format, pizza.getPizzaType(), Ingredient.valueOf(pizza.getPizzaType()).getPrice()));
 
-            for (String s : pizza.getIngredient()) {
-                stringBuilder.append(String.format(format, s, Ingredients.valueOf(s).getPrice()));
-                sum += Ingredients.valueOf(s).getPrice();
+            for (String s : pizza.getIngredients()) {
+                stringBuilder.append(String.format(format, s, Ingredient.valueOf(s).getPrice()));
+                sum += Ingredient.valueOf(s).getPrice();
             }
             stringBuilder.append(hyphen).append("\n");
             stringBuilder.append(String.format(format, "Всего: ", sum));

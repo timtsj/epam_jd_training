@@ -1,6 +1,6 @@
 package kz.epam.course.fundamentals.mainTask.entity;
 
-public enum Ingredients {
+public enum Ingredient {
 
     TOMATO_PASTE("Tomato Paste", 1.0f),
     CHEESE("Cheese", 1.0f),
@@ -16,24 +16,12 @@ public enum Ingredients {
     private String name;
     private float price;
 
-    Ingredients(String name, float price) {
+    Ingredient(String name, float price) {
         this.name = name;
         this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public float getPrice() {
         return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
     }
 }

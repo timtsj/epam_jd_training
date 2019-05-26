@@ -9,8 +9,8 @@ public class OptionalTask1_2 {
      */
     public static void main(String[] args) {
 
-        for (int i = args.length; 0 < i; i--) {
-            System.out.println(args[i - 1]);
+        for (int i = args.length - 1; 0 <= i; i--) {
+            System.out.println(args[i]);
         }
     }
 

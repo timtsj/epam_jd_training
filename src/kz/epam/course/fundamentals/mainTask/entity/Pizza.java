@@ -1,20 +1,21 @@
 package kz.epam.course.fundamentals.mainTask.entity;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Pizza {
     private String pizzaName;
     private String pizzaType;
-    private List<String> ingredient;
+    private List<String> ingredients;
     private int quantity;
 
     public Pizza() {
     }
 
-    public Pizza(String pizzaName, String pizzaType, List<String> ingredient, int quantity) {
+    public Pizza(String pizzaName, String pizzaType, List<String> ingredients, int quantity) {
         this.pizzaName = pizzaName;
         this.pizzaType = pizzaType;
-        this.ingredient = ingredient;
+        this.ingredients = ingredients;
         this.quantity = quantity;
     }
 
@@ -34,12 +35,12 @@ public class Pizza {
         this.pizzaType = pizzaType;
     }
 
-    public List<String> getIngredient() {
-        return ingredient;
+    public List<String> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredient(List<String> ingredient) {
-        this.ingredient = ingredient;
+    public void setIngredients(List<String> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public int getQuantity() {
@@ -49,4 +50,5 @@ public class Pizza {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
 }

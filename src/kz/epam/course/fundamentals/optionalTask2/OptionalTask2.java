@@ -15,10 +15,6 @@ public class OptionalTask2 {
         findMaxAndMinNumbers(digits);   //done
         sort(digits);                   //done
         averageNumbers(digits);         //done
-        diffNumbersMinimum(digits);
-        evenNumbers(digits);
-        numbersAscendingOrder(digits);
-        diffNumbers(digits);
     }
 
     /**
@@ -43,13 +39,11 @@ public class OptionalTask2 {
             if (minDigit == 0) {
                 minDigit = i;
                 minLength = digit.length();
-                //minLength = digit.contains("-") || digit.contains("+") ? digit.length() - 1 : digit.length();
             }
 
             if (i < minDigit) {
                 minDigit = i;
                 minLength = digit.length();
-                //minLength = digit.contains("-") || digit.contains("+") ? digit.length() - 1 : digit.length();
             }
         }
 

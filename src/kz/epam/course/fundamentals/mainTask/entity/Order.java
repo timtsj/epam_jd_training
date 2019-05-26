@@ -8,7 +8,7 @@ public class Order {
     private static final int MIN_QUANTITY = 0;
     private static final int MIN_PIZZA_NAME_LENGTH = 4;
     private static final int MAX_PIZZA_NAME_LENGTH = 20;
-    private static final int MAX_INGREDIENTS = 8;
+    private static final int MAX_INGREDIENTS = 7;
     private Pizza pizza;
     private Client client;
     private int orderNumber = 10000;
@@ -22,9 +22,7 @@ public class Order {
         this.orderNumber++;
     }
 
-    public void newPizza(String pizzaName, String pizzaType, int quantity) throws Exception {
-        if (quantity > MAX_QUANTITY) throw new Exception("Quantity can not be more than 10");
-        if (quantity < MIN_QUANTITY) throw new Exception("Quantity can not be less than 0");
+    public void newPizza(String pizzaName, String pizzaType, int quantity) {
         pizNum++;
 
         if (pizzaName.trim().length() < MIN_PIZZA_NAME_LENGTH || pizzaName.trim().length() > MAX_PIZZA_NAME_LENGTH) {
@@ -53,11 +51,20 @@ public class Order {
 
         ingredientList.add(ingredient);
         if (ingredientList.size() > MAX_INGREDIENTS) throw new Exception("Pizza is full");
-        pizza.setIngredient(ingredientList);
+        pizza.setIngredients(ingredientList);
     }
 
-    public void build() {
-        currentPizzaList.add(new Pizza(pizza.getPizzaName(), pizza.getPizzaType(), pizza.getIngredient(), pizza.getQuantity()));
+    public void build() throws Exception {
+
+        currentPizzaList.add(new Pizza(pizza.getPizzaName(), pizza.getPizzaType(), pizza.getIngredients(), pizza.getQuantity()));
+
+        int sum = 0;
+        for (Pizza piz : getCurrentPizzaList()){
+            sum += piz.getQuantity();
+        }
+
+        if (sum > MAX_QUANTITY) throw new Exception("Quantity can not be more than 10");
+        if (sum < MIN_QUANTITY) throw new Exception("Quantity can not be less than 0");
     }
 
     public Client getClient() {
