@@ -37,8 +37,12 @@ public class Order {
     }
 
     public void getPizzaAttribute() {
-        String orderString = orderNumber + ":" + client.getId() + ":" + pizza.getPizzaName() + ":" + pizza.getQuantity();
-        System.out.println(orderString);
+
+        for (Pizza piz : getCurrentPizzaList()){
+            String orderString = orderNumber + ":" + client.getId() + ":" + piz.getPizzaName() + ":" + piz.getQuantity();
+            System.out.println(orderString);
+        }
+
     }
 
     public void addIngredient(String ingredient) throws Exception {
