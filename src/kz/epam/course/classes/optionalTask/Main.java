@@ -1,6 +1,6 @@
 package kz.epam.course.classes.optionalTask;
 
-public class MainTask {
+public class Main {
     public static void main(String[] args) {
         setStudents();
     }
